@@ -13,4 +13,4 @@ Correct change is calculated and printed in largest denominations.
 
 This is [Skill Distillery](http://skilldistellery.com) week 1 homework.
 
-### Lesson Learned
+### Lessons Learned
