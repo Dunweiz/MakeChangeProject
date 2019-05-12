@@ -12,9 +12,12 @@ public class MakeChangeApp {
 		double paid = input.nextDouble();
 
 		isThatEnough(price, paid);
+		System.out.println(paid - price);
 
 		changeNeeded(paid, price, change);
-		System.out.println(" is your change");
+		if (paid > price) {
+			System.out.println(" is your change");
+		}
 
 	}
 
@@ -41,7 +44,6 @@ public class MakeChangeApp {
 		String fifty = "";
 		while (change >= 5000 && count < 10) {
 			change = change - 5000;
-			System.out.print(change + " ");
 			count += 1;
 			fifty = "fifty";
 
@@ -49,7 +51,7 @@ public class MakeChangeApp {
 		if (fifty.equals("fifty") && count == 1) {
 			System.out.print(count + " $50 Bill ");
 
-		} else if (fifty.equals("fifty") && count < 1) {
+		} else if (fifty.equals("fifty") && count > 1) {
 			System.out.print(count + " $50 Bill's ");
 		}
 		String twenty = "";
@@ -60,7 +62,7 @@ public class MakeChangeApp {
 		}
 		if (twenty.equals("twenty") && count == 1) {
 			System.out.print(count + " $20 Bill ");
-		} else if (twenty.equals("twenty") && count < 1)
+		} else if (twenty.equals("twenty") && count > 1)
 			System.out.print(count + " $20 Bill's ");
 		count = 1;
 		if (change >= 1000) {
@@ -84,7 +86,7 @@ public class MakeChangeApp {
 		}
 		if (one.equals("one") && count == 1) {
 			System.out.print(count + " $1 Bill ");
-		} else if (one.equals("one") && count < 1) {
+		} else if (one.equals("one") && count > 1) {
 			System.out.print(count + " $1 Bill's ");
 		}
 		// System.out.println(change);
@@ -96,11 +98,11 @@ public class MakeChangeApp {
 			change = change - 25;
 			quarter = "quarter";
 		}
-		if (quarter.equals("quarter") && count < 1) {
+		if (quarter.equals("quarter") && count > 1) {
 			System.out.print(count + " Quarters ");
 //			 System.out.print("Change after quarters: " + change);
 		} else if (quarter.equals("quarter") && count == 1) {
-			System.out.print(count + " Quarter");
+			System.out.print(count + " Quarter ");
 		}
 		String dime = "";
 		count = 0;
@@ -111,7 +113,7 @@ public class MakeChangeApp {
 		}
 		if (dime.equals("dime") && count == 1) {
 			System.out.print(count + " Dime ");
-		} else if (dime.equals("dime") && count < 1) {
+		} else if (dime.equals("dime") && count > 1) {
 			System.out.print(count + " Dime's ");
 		}
 		count = 1;
