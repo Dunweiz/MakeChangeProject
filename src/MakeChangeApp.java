@@ -4,6 +4,7 @@ public class MakeChangeApp {
 	public static void main(String[] args) {
 		// Prompt user for value.
 		Scanner input = new Scanner(System.in);
+		double change = 0;
 
 		System.out.println("Please input the item amount: ");
 		double price = input.nextDouble();
@@ -12,9 +13,7 @@ public class MakeChangeApp {
 
 		isThatEnough(price, paid);
 
-		changeNeeded(paid, price);
-
-
+		changeNeeded(paid, price, change);
 		System.out.print(" is your change");
 
 	}
@@ -32,74 +31,65 @@ public class MakeChangeApp {
 		}
 	}
 
-	public static void changeNeeded(double price, double paid) {
-		double change = paid - price, tendered = paid;
-		int count = 0;
+	public static void changeNeeded(double price, double paid, double change) {
+		change = price - paid;
+		double tendered = paid;
+		System.out.println(change);
+		int count = 1;
 
-		while (count <= 5) {
-			// paid 100 price 10.34
-			// gave 89.66 1-50 1-20 1-10 1-5 4-1 2-.25 1-.10 1-.5 1-.01
-			count++;
-			break;
-
-		}
-		if (change <= tendered) {
+		if (change >= 50) {
 			change = change - 50;
 			System.out.print(change + " ");
 			System.out.print(count + " $50 ");
-			count++;
 
 		}
-		if (change <= tendered) {
+		if (change >= 20) {
 			change = change - 20;
 			System.out.print(count + " $20 Bill ");
-			count++;
 
 		}
-		if (change <= tendered) {
+		if (change >= 10) {
 			change = change - 10;
 			System.out.print(count + " $10 Bill ");
-			count++;
 
 		}
-		if (change <= tendered) {
+		if (change >= 5) {
 			change = change - 5;
 			System.out.print(count + " $5 Bill ");
-			count++;
 
 		}
-		if (change <= tendered) {
+		count = 0;
+		while (change >= 1 && count <= 5) {
 			change = change - 1;
-			System.out.print(count + " $1 Bill ");
-			count++;
-
-		} else {
-			System.out.println("Invalid insert of cash");
-		}
-
-	}
-
-	public static void centChange(double change) {
-		int n = 0;
-
-		while (n <= 5) {
+			count += 1;
 
 		}
+		System.out.print(count + " $1 Bill ");
 
-		if (change <= 1) {
-			change = change + .25;
-			System.out.print(n + " Quarters ");
-			n++;
+		if(change < 1) {
+			change = .25 + change;
+			System.out.println(count + " Quaters ");
 		}
-		if (change <= 1) {
+		
+		
+		
+		if (change < 1){
 			change = change + .10;
-			System.out.print(n + " Dimes ");
-			n++;
+			System.out.print(count + " Dime ");
+			count += 1;
 		}
-		if (change <= 1) {
-			change = change - .01;
-			System.out.print(n + " Pennies ");
-			n++;
+		if (change < 1) {
+			change = change + .05;
+			System.out.print(count + "Nickle ");
+			count++;
 		}
+		count = 0;
+		while (change < 1 && count <= 5) {
+			change = change + .01;
+			count += 1;
+		}
+		System.out.print(count + " Pennies ");
+
 	}
+
 }
