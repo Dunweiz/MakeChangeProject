@@ -12,6 +12,9 @@ public class MakeChangeApp {
 		double paid = input.nextDouble();
 
 		isThatEnough(price, paid);
+		double missing, newpaid;
+		missing = price - paid;
+		
 		System.out.println(paid - price);
 
 		changeNeeded(paid, price, change);
@@ -106,7 +109,7 @@ public class MakeChangeApp {
 		}
 		String dime = "";
 		count = 0;
-		while (change % 10 == 0 && change > 10 && count < 2) {
+		while (change >= 10 && change > 10 && count < 2) {
 			change = change - 10;
 			count += 1;
 			dime = "dime";
@@ -134,5 +137,6 @@ public class MakeChangeApp {
 			System.out.print(count + " Pennies ");
 		}
 	}
+	
 
 }
