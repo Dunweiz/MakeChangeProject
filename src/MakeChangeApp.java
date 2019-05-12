@@ -33,7 +33,7 @@ public class MakeChangeApp {
 
 	public static void changeNeeded(double price, double paid, double change) {
 		change = price - paid;
-		double tendered = paid;
+//		double tendered = paid;
 		System.out.println(change);
 		int count = 1;
 
@@ -65,23 +65,32 @@ public class MakeChangeApp {
 
 		}
 		System.out.print(count + " $1 Bill ");
-
-		if(change < 1) {
-			change = .25 + change;
-			System.out.println(count + " Quaters ");
-		}
 		
-		
-		
-		if (change < 1){
-			change = change + .10;
-			System.out.print(count + " Dime ");
+		double tendered = 1; count = 1;
+		while(tendered % .25 == 0 && change > .25 && count < 3) {
+			tendered = .25 * count;
+			change = change - .25;
+			System.out.println("Change as it's subtracting quarters: " + change);
 			count += 1;
 		}
-		if (change < 1) {
-			change = change + .05;
-			System.out.print(count + "Nickle ");
-			count++;
+		System.out.println(count + " Quarters ");
+		System.out.println("Change after quarters: " + change);
+		
+		
+		count = 0;
+		while (tendered % .1 == 0 && change > .1 && count < 2){
+			tendered = .1 * count;
+			change = change - .1;
+			count += 1;
+			System.out.print(count + " Dime ");
+			
+			
+		}
+		
+		count = 1;
+		if (tendered % .05 == 0 && change < 1) {
+			tendered = .05 * count;
+			System.out.print(count + " Nickle ");
 		}
 		count = 0;
 		while (change < 1 && count <= 5) {
