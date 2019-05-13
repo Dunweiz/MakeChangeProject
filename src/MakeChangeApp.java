@@ -15,11 +15,10 @@ public class MakeChangeApp {
 		double missing, newpaid;
 		missing = price - paid;
 		
-		System.out.println(paid - price);
+		//System.out.println(paid - price);
 
 		changeNeeded(paid, price, change);
 		if (paid > price) {
-			System.out.println(" is your change");
 		}
 
 	}
@@ -135,6 +134,7 @@ public class MakeChangeApp {
 			System.out.print(count + " Penny ");
 		} else if (penny.equals("penny") && count > 1) {
 			System.out.print(count + " Pennies ");
+			System.out.println(" is your change");
 		}
 	}
 	
