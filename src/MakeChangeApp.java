@@ -25,10 +25,10 @@ public class MakeChangeApp {
 
 	public static void isThatEnough(double price, double paid) {
 		if (paid == price) {
-			System.out.println("That is the correct amount.");
+			System.out.println("That is the exact amount required.");
 
 		} else if (paid >= price) {
-			System.out.println("That is more then enough please wait for the change.");
+			System.out.println("That is more then enough your change will be: ");
 
 		} else {
 			System.out.println("That is not enough.");
