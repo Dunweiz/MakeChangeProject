@@ -43,14 +43,25 @@ public class MakeChangeApp {
 		// System.out.println(change);
 		int count = 0;
 		String fifty = "";
-		while (change >= 100)
+		String hundred = "";
+		while (change >= 100 && count < 100) {
+			change = change - 100;
+			count += 1;
+			hundred = "hundred";
+		}
+		if(hundred.equals("hundred") && count == 1) {
+			System.out.println(count + " $100 Bill");
+		}
+		if(hundred.equals("hundred") && count > 1) {
+			System.out.println(count + " $100 Bills");
+		}
+		count = 0;
+		while (change >= 50 && count < 100) {
+			change = change - 50;
+			count += 1;
+			fifty = "fifty";
 
-			while (change >= 50 && count < 10) {
-				change = change - 50;
-				count += 1;
-				fifty = "fifty";
-
-			}
+		}
 		if (fifty.equals("fifty") && count == 1) {
 			System.out.print(count + " $50 Bill ");
 
