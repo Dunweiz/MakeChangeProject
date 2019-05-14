@@ -50,10 +50,10 @@ public class MakeChangeApp {
 			hundred = "hundred";
 		}
 		if(hundred.equals("hundred") && count == 1) {
-			System.out.println(count + " $100 Bill");
+			System.out.print(count + " $100 Bill");
 		}
 		if(hundred.equals("hundred") && count > 1) {
-			System.out.println(count + " $100 Bills");
+			System.out.print(count + " $100 Bills");
 		}
 		count = 0;
 		while (change >= 50 && count < 100) {
