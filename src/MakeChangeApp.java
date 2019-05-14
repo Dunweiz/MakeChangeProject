@@ -14,11 +14,12 @@ public class MakeChangeApp {
 		isThatEnough(price, paid);
 		double missing, newpaid;
 		missing = price - paid;
-		
-		//System.out.println(paid - price);
+
+		// System.out.println(paid - price);
 
 		changeNeeded(paid, price, change);
 		if (paid > price) {
+			input.close();
 		}
 
 	}
@@ -37,51 +38,51 @@ public class MakeChangeApp {
 	}
 
 	public static void changeNeeded(double price, double paid, double change) {
-		price = price * 100;
-		paid = paid * 100;
 		change = price - paid;
 //		double tendered = paid;
 		// System.out.println(change);
 		int count = 0;
 		String fifty = "";
-		while (change >= 5000 && count < 10) {
-			change = change - 5000;
-			count += 1;
-			fifty = "fifty";
+		while (change >= 100)
 
-		}
+			while (change >= 50 && count < 10) {
+				change = change - 50;
+				count += 1;
+				fifty = "fifty";
+
+			}
 		if (fifty.equals("fifty") && count == 1) {
 			System.out.print(count + " $50 Bill ");
 
 		} else if (fifty.equals("fifty") && count > 1) {
-			System.out.print(count + " $50 Bill's ");
+			System.out.print(count + " $50 Bills ");
 		}
 		String twenty = "";
-		while (change >= 2000 && count < 5) {
-			change = change - 2000;
+		while (change >= 20 && count < 5) {
+			change = change - 20;
 			count += 1;
 			twenty = "twenty";
 		}
 		if (twenty.equals("twenty") && count == 1) {
 			System.out.print(count + " $20 Bill ");
 		} else if (twenty.equals("twenty") && count > 1)
-			System.out.print(count + " $20 Bill's ");
+			System.out.print(count + " $20 Bills ");
 		count = 1;
-		if (change >= 1000) {
-			change = change - 1000;
+		if (change >= 10) {
+			change = change - 10;
 			System.out.print(count + " $10 Bill ");
 
 		}
 		count = 1;
-		if (change >= 500) {
-			change = change - 500;
+		if (change >= 5) {
+			change = change - 5;
 			System.out.print(count + " $5 Bill ");
 
 		}
 		String one = "";
 		count = 0;
-		while (change >= 100 && count <= 5) {
-			change = change - 100;
+		while (change >= 1 && count <= 5) {
+			change = change - 1;
 			count += 1;
 			one = "one";
 
@@ -89,8 +90,10 @@ public class MakeChangeApp {
 		if (one.equals("one") && count == 1) {
 			System.out.print(count + " $1 Bill ");
 		} else if (one.equals("one") && count > 1) {
-			System.out.print(count + " $1 Bill's ");
+			System.out.print(count + " $1 Bills ");
 		}
+		// NEED TO FIX HERE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+		change = change * 100;
 		// System.out.println(change);
 		String quarter = "";
 		count = 0;
@@ -116,7 +119,7 @@ public class MakeChangeApp {
 		if (dime.equals("dime") && count == 1) {
 			System.out.print(count + " Dime ");
 		} else if (dime.equals("dime") && count > 1) {
-			System.out.print(count + " Dime's ");
+			System.out.print(count + " Dimes ");
 		}
 		count = 1;
 		if (change >= 5) {
@@ -137,6 +140,5 @@ public class MakeChangeApp {
 			System.out.println(" is your change");
 		}
 	}
-	
 
 }
